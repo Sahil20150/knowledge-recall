@@ -10,7 +10,6 @@ interface LanguageSelectorProps {
 const languages: { value: Language; label: string; color: string }[] = [
   { value: 'python', label: 'Python', color: 'text-blue-600' },
   { value: 'javascript', label: 'JavaScript', color: 'text-yellow-600' },
-  { value: 'java', label: 'Java', color: 'text-red-600' }
 ];
 
 export function LanguageSelector({ language, onChange }: LanguageSelectorProps) {

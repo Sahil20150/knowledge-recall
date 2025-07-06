@@ -67,9 +67,6 @@ async function simulateCodeExecution(code: string, language: Language): Promise<
       case 'javascript':
         output = executeJavaScript(code);
         break;
-      case 'java':
-        output = executeJava(code);
-        break;
       default:
         output = 'Language not supported for execution';
     }
@@ -175,13 +172,6 @@ function executeJava(code: string): string {
         output += value + '\n';
       }
     });
-  }
-  
-  // Handle common patterns
-  if (code.includes('public static String greet')) {
-    if (!output.includes('Hello')) {
-      output = 'Hello, Java!\nHello, World!\n' + output;
-    }
   }
   
   if (code.includes('num * num')) {

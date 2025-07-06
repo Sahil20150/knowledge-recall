@@ -200,7 +200,6 @@ export function KnowledgeView() {
               <option value="all">All Languages</option>
               <option value="python">Python</option>
               <option value="javascript">JavaScript</option>
-              <option value="java">Java</option>
               <option value="bash">Bash/CLI</option>
               <option value="both">Both Stacks</option>
             </select>

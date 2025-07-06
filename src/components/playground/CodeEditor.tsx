@@ -45,7 +45,6 @@ export function CodeEditor({
     switch (lang) {
       case 'python': return 'python';
       case 'javascript': return 'javascript';
-      case 'java': return 'java';
       default: return 'plaintext';
     }
   };
@@ -54,7 +53,6 @@ export function CodeEditor({
     switch (lang) {
       case 'python': return '.py';
       case 'javascript': return '.js';
-      case 'java': return '.java';
       default: return '.txt';
     }
   };

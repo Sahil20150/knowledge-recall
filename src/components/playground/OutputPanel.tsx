@@ -102,7 +102,6 @@ export function OutputPanel({ execution, isExecuting, onClear }: OutputPanelProp
             <div className="mt-4 text-xs space-y-1">
               <p>• Supports print() statements in Python</p>
               <p>• Supports console.log() in JavaScript</p>
-              <p>• Supports System.out.println() in Java</p>
             </div>
           </div>
         )}

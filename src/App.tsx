@@ -4,7 +4,7 @@ import { PlaygroundView } from './components/playground/PlaygroundView';
 import { KnowledgeView } from './components/knowledge/KnowledgeView';
 
 function App() {
-  const [activeTab, setActiveTab] = useState<'playground' | 'knowledge'>('playground');
+  const [activeTab, setActiveTab] = useState<'playground' | 'knowledge'>('knowledge');
 
   return (
     <div className="flex flex-col h-screen bg-gray-50">
@@ -13,7 +13,7 @@ function App() {
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-3">
             <Code className="w-8 h-8 text-purple-600" />
-            <h1 className="text-xl font-bold text-gray-900">CodePlayground</h1>
+            <h1 className="text-xl font-bold text-gray-900">CodeSpace by Sahil</h1>
           </div>
           
           <nav className="flex items-center space-x-1">

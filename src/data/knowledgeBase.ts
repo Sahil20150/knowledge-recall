@@ -18,7 +18,7 @@ export interface KnowledgeItem {
   commonPitfalls?: string[];
   tags: string[];
   difficulty: 'beginner' | 'intermediate' | 'advanced';
-  language?: 'python' | 'javascript' | 'java' | 'bash' | 'dockerfile' | 'yaml' | 'both';
+  language?: 'python' | 'javascript'| 'bash' | 'dockerfile' | 'yaml' | 'both';
 }
 
 export const knowledgeItems: KnowledgeItem[] = [
