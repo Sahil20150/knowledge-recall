@@ -60,7 +60,7 @@ export function CodeEditor({
   return (
     <div className="flex flex-col h-full">
       {/* Editor Header */}
-      <div className="flex items-center justify-between p-3 border-b border-gray-200 bg-gray-50">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between p-2 sm:p-3 border-b border-gray-200 bg-gray-50 space-y-2 sm:space-y-0">
         <div className="flex items-center space-x-2">
           <span className="text-sm font-medium text-gray-700 capitalize">
             {language}
@@ -70,7 +70,8 @@ export function CodeEditor({
           </span>
           <div className="flex items-center space-x-1 text-xs text-gray-500">
             <Clock className="w-3 h-3" />
-            <span>Line {code.split('\n').length}</span>
+            <span className="hidden sm:inline">Line {code.split('\n').length}</span>
+            <span className="sm:hidden">{code.split('\n').length}</span>
           </div>
         </div>
         
@@ -103,7 +104,8 @@ export function CodeEditor({
             disabled={!code.trim()}
           >
             <Play className="w-4 h-4 mr-1" />
-            Run Code
+            <span className="hidden sm:inline">Run Code</span>
+            <span className="sm:hidden">Run</span>
           </Button>
         </div>
       </div>
@@ -131,7 +133,6 @@ export function CodeEditor({
             roundedSelection: false,
             readOnly: false,
             cursorStyle: 'line',
-            automaticLayout: true,
           }}
         />
       </div>

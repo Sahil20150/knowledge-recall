@@ -14,7 +14,7 @@ export function OutputPanel({ execution, isExecuting, onClear }: OutputPanelProp
   return (
     <div className="flex flex-col h-full">
       {/* Output Header */}
-      <div className="flex items-center justify-between p-3 border-b border-gray-200 bg-gray-50">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between p-2 sm:p-3 border-b border-gray-200 bg-gray-50 space-y-2 sm:space-y-0">
         <div className="flex items-center space-x-2">
           <Terminal className="w-4 h-4 text-gray-600" />
           <span className="text-sm font-medium text-gray-700">Console Output</span>
@@ -44,7 +44,7 @@ export function OutputPanel({ execution, isExecuting, onClear }: OutputPanelProp
       </div>
       
       {/* Output Content */}
-      <div className="flex-1 p-4 bg-gray-900 text-gray-100 font-mono text-sm overflow-auto">
+      <div className="flex-1 p-3 sm:p-4 bg-gray-900 text-gray-100 font-mono text-xs sm:text-sm overflow-auto">
         {isExecuting ? (
           <div className="flex items-center space-x-2 text-yellow-400">
             <div className="w-4 h-4 border-2 border-yellow-400 border-t-transparent rounded-full animate-spin" />
@@ -77,7 +77,7 @@ export function OutputPanel({ execution, isExecuting, onClear }: OutputPanelProp
             )}
             
             {/* Execution Stats */}
-            <div className="text-gray-500 text-xs flex items-center justify-between pt-3 border-t border-gray-700">
+            <div className="text-gray-500 text-xs flex flex-col sm:flex-row sm:items-center sm:justify-between pt-3 border-t border-gray-700 space-y-2 sm:space-y-0">
               <div className="flex items-center space-x-4">
                 <div className="flex items-center space-x-1">
                   <Clock className="w-3 h-3" />
@@ -95,10 +95,10 @@ export function OutputPanel({ execution, isExecuting, onClear }: OutputPanelProp
             </div>
           </div>
         ) : (
-          <div className="text-gray-500 text-center py-12">
-            <Terminal className="w-16 h-16 mx-auto mb-4 opacity-30" />
-            <p className="text-lg mb-2">Ready to execute</p>
-            <p className="text-sm">Click "Run Code" to see output here</p>
+          <div className="text-gray-500 text-center py-8 sm:py-12">
+            <Terminal className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-4 opacity-30" />
+            <p className="text-base sm:text-lg mb-2">Ready to execute</p>
+            <p className="text-xs sm:text-sm">Click "Run Code" to see output here</p>
             <div className="mt-4 text-xs space-y-1">
               <p>• Supports print() statements in Python</p>
               <p>• Supports console.log() in JavaScript</p>

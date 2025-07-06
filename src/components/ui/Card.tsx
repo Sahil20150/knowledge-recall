@@ -9,11 +9,11 @@ export function Card({ className, variant = 'default', ...props }: CardProps) {
   return (
     <div
       className={cn(
-        'rounded-lg border bg-white',
+        'rounded-lg border bg-white dark:bg-gray-800',
         {
-          'shadow-sm border-gray-200': variant === 'default',
-          'shadow-lg border-gray-200': variant === 'elevated',
-          'shadow-none border-gray-300': variant === 'outline',
+          'shadow-sm border-gray-200 dark:border-gray-700': variant === 'default',
+          'shadow-lg border-gray-200 dark:border-gray-700': variant === 'elevated',
+          'shadow-none border-gray-300 dark:border-gray-600': variant === 'outline',
         },
         className
       )}
@@ -30,7 +30,7 @@ export function CardHeader({ className, ...props }: React.HTMLAttributes<HTMLDiv
 
 export function CardTitle({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) {
   return (
-    <h3 className={cn('text-lg font-semibold leading-none tracking-tight', className)} {...props} />
+    <h3 className={cn('text-lg font-semibold leading-none tracking-tight text-gray-900 dark:text-white', className)} {...props} />
   );
 }
 

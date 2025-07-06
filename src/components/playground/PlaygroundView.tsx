@@ -34,13 +34,13 @@ export function PlaygroundView() {
   return (
     <div className="flex flex-col h-full">
       {/* Toolbar */}
-      <div className="flex items-center justify-between p-4 border-b border-gray-200 bg-white">
-        <div className="flex items-center space-x-4">
-          <h2 className="text-lg font-semibold text-gray-900">Code Editor</h2>
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between p-3 sm:p-4 border-b border-gray-200 bg-white space-y-2 sm:space-y-0">
+        <div className="flex items-center space-x-2 sm:space-x-4">
+          <h2 className="text-base sm:text-lg font-semibold text-gray-900">Code Editor</h2>
           <LanguageSelector language={language} onChange={setLanguage} />
         </div>
         
-        <div className="flex items-center space-x-2 text-sm text-gray-500">
+        <div className="flex items-center space-x-2 text-xs sm:text-sm text-gray-500">
           <span>Execution: 30s max</span>
           <span>•</span>
           <span>Memory: 512MB</span>
@@ -48,8 +48,8 @@ export function PlaygroundView() {
       </div>
       
       {/* Editor and Output */}
-      <div className="flex-1 flex min-h-0">
-        <div className="flex-1 border-r border-gray-200">
+      <div className="flex-1 flex flex-col lg:flex-row min-h-0 overflow-auto">
+        <div className="flex-1 border-b lg:border-b-0 lg:border-r border-gray-200 min-h-0 overflow-auto">
           <CodeEditor
             language={language}
             code={currentCode}
@@ -60,7 +60,7 @@ export function PlaygroundView() {
           />
         </div>
         
-        <div className="w-96">
+        <div className="w-full lg:w-96 min-h-0 overflow-auto">
           <OutputPanel
             execution={latestExecution}
             isExecuting={isExecuting}

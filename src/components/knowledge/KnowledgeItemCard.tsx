@@ -56,32 +56,34 @@ export function KnowledgeItemCard({ item, viewMode, onClick }: KnowledgeItemCard
   if (viewMode === 'list') {
     return (
       <Card 
-        className="hover:shadow-lg transition-all duration-200 cursor-pointer border-l-4 border-l-purple-500 bg-white"
+        className="group hover:shadow-lg transition-all duration-300 cursor-pointer border-l-4 border-l-purple-500 bg-white dark:bg-gray-800 dark:border-l-purple-400 dark:hover:shadow-gray-900/50 hover:scale-[1.02] hover:border-l-purple-600 dark:hover:border-l-purple-400"
         onClick={onClick}
       >
-        <CardContent className="p-6">
+        <CardContent className="p-4 sm:p-6">
           <div className="flex items-start justify-between">
-            <div className="flex-1">
-              <div className="flex items-center space-x-3 mb-2">
-                <div className="p-1.5 bg-purple-50 rounded-lg">
-                  {getTypeIcon(item.type)}
+            <div className="flex-1 min-w-0">
+              <div className="flex items-center space-x-2 sm:space-x-3 mb-3">
+                <div className="p-2 bg-gradient-to-br from-purple-500 to-purple-600 dark:from-purple-600 dark:to-purple-700 rounded-lg flex-shrink-0 shadow-sm">
+                  <div className="text-white">
+                    {getTypeIcon(item.type)}
+                  </div>
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900">{item.title}</h3>
+                <h3 className="text-base sm:text-lg font-bold text-gray-900 dark:text-white truncate group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">{item.title}</h3>
               </div>
               
-              <p className="text-gray-600 mb-3 line-clamp-2">{item.description}</p>
+              <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 mb-3 line-clamp-2">{item.description}</p>
               
-              <div className="flex flex-wrap gap-2 mb-3">
+              <div className="flex flex-wrap gap-1 sm:gap-2 mb-3">
                 <Badge variant={getDifficultyColor(item.difficulty) as any} className="border">
                   <span className="flex items-center space-x-1">
                     {getDifficultyIcon(item.difficulty)}
-                    <span className="capitalize">{item.difficulty}</span>
+                    <span className="capitalize text-xs sm:text-sm">{item.difficulty}</span>
                   </span>
                 </Badge>
                 
                 {item.language && (
                   <Badge className={`${getLanguageColor(item.language)} border font-medium`}>
-                    <span className="capitalize">{item.language}</span>
+                    <span className="capitalize text-xs sm:text-sm">{item.language}</span>
                   </Badge>
                 )}
                 
@@ -91,20 +93,20 @@ export function KnowledgeItemCard({ item, viewMode, onClick }: KnowledgeItemCard
               </div>
               
               <div className="flex flex-wrap gap-1">
-                {item.tags.slice(0, 4).map((tag) => (
-                  <span key={tag} className="inline-block bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded-full">
+                {item.tags.slice(0, 3).map((tag) => (
+                  <span key={tag} className="inline-block bg-gradient-to-r from-purple-50 to-purple-100 dark:from-purple-900/30 dark:to-purple-800/30 text-purple-700 dark:text-purple-300 text-xs px-2 py-1 rounded-full border border-purple-200 dark:border-purple-700">
                     #{tag}
                   </span>
                 ))}
-                {item.tags.length > 4 && (
-                  <span className="inline-block bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded-full">
-                    +{item.tags.length - 4} more
+                {item.tags.length > 3 && (
+                  <span className="inline-block bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-700 dark:to-gray-600 text-gray-600 dark:text-gray-300 text-xs px-2 py-1 rounded-full border border-gray-200 dark:border-gray-600">
+                    +{item.tags.length - 3} more
                   </span>
                 )}
               </div>
             </div>
             
-            <ChevronRight className="w-5 h-5 text-gray-400 ml-4 flex-shrink-0" />
+            <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 dark:text-gray-500 ml-2 sm:ml-4 flex-shrink-0 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors" />
           </div>
         </CardContent>
       </Card>
@@ -113,37 +115,39 @@ export function KnowledgeItemCard({ item, viewMode, onClick }: KnowledgeItemCard
 
   return (
     <Card 
-      className="hover:shadow-xl transition-all duration-200 cursor-pointer border-l-4 border-l-purple-500 bg-white h-full"
+      className="group hover:shadow-xl transition-all duration-300 cursor-pointer border-l-4 border-l-purple-500 bg-white dark:bg-gray-800 dark:border-l-purple-400 h-full dark:hover:shadow-gray-900/50 hover:scale-[1.02] hover:border-l-purple-600 dark:hover:border-l-purple-400"
       onClick={onClick}
     >
-      <CardHeader className="pb-4">
-        <div className="flex items-center space-x-3 mb-2">
-          <div className="p-1.5 bg-purple-50 rounded-lg">
-            {getTypeIcon(item.type)}
+      <CardHeader className="pb-3 sm:pb-4">
+        <div className="flex items-center space-x-2 sm:space-x-3 mb-3">
+          <div className="p-2 bg-gradient-to-br from-purple-500 to-purple-600 dark:from-purple-600 dark:to-purple-700 rounded-lg flex-shrink-0 shadow-sm">
+            <div className="text-white">
+              {getTypeIcon(item.type)}
+            </div>
           </div>
-          <CardTitle className="text-lg font-semibold text-gray-900 line-clamp-1">
+          <CardTitle className="text-base sm:text-lg font-bold text-gray-900 dark:text-white line-clamp-1 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
             {item.title}
           </CardTitle>
         </div>
         
-        <p className="text-gray-600 text-sm leading-relaxed line-clamp-3">
+        <p className="text-gray-600 dark:text-gray-400 text-xs sm:text-sm leading-relaxed line-clamp-3">
           {item.description}
         </p>
       </CardHeader>
       
       <CardContent className="pt-0">
-        <div className="space-y-3">
-          <div className="flex flex-wrap gap-2">
+        <div className="space-y-2 sm:space-y-3">
+          <div className="flex flex-wrap gap-1 sm:gap-2">
             <Badge variant={getDifficultyColor(item.difficulty) as any} className="border">
               <span className="flex items-center space-x-1">
                 {getDifficultyIcon(item.difficulty)}
-                <span className="capitalize">{item.difficulty}</span>
+                <span className="capitalize text-xs sm:text-sm">{item.difficulty}</span>
               </span>
             </Badge>
             
             {item.language && (
               <Badge className={`${getLanguageColor(item.language)} border font-medium`}>
-                <span className="capitalize">{item.language}</span>
+                <span className="capitalize text-xs sm:text-sm">{item.language}</span>
               </Badge>
             )}
             
@@ -153,23 +157,23 @@ export function KnowledgeItemCard({ item, viewMode, onClick }: KnowledgeItemCard
           </div>
           
           <div className="flex flex-wrap gap-1">
-            {item.tags.slice(0, 3).map((tag) => (
-              <span key={tag} className="inline-block bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded-full">
+            {item.tags.slice(0, 2).map((tag) => (
+              <span key={tag} className="inline-block bg-gradient-to-r from-purple-50 to-purple-100 dark:from-purple-900/30 dark:to-purple-800/30 text-purple-700 dark:text-purple-300 text-xs px-2 py-1 rounded-full border border-purple-200 dark:border-purple-700">
                 #{tag}
               </span>
             ))}
-            {item.tags.length > 3 && (
-              <span className="inline-block bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded-full">
-                +{item.tags.length - 3}
+            {item.tags.length > 2 && (
+              <span className="inline-block bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-700 dark:to-gray-600 text-gray-600 dark:text-gray-300 text-xs px-2 py-1 rounded-full border border-gray-200 dark:border-gray-600">
+                +{item.tags.length - 2}
               </span>
             )}
           </div>
           
-          <div className="flex items-center justify-between pt-2">
-            <span className="text-xs text-gray-500">
-              {item.code ? 'Has code examples' : 'Conceptual guide'}
+          <div className="flex items-center justify-between pt-3">
+            <span className="text-xs text-gray-500 dark:text-gray-400 font-medium">
+              {item.code ? '📝 Has code examples' : '📚 Conceptual guide'}
             </span>
-            <ChevronRight className="w-4 h-4 text-gray-400" />
+            <ChevronRight className="w-4 h-4 text-gray-400 dark:text-gray-500 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors" />
           </div>
         </div>
       </CardContent>
